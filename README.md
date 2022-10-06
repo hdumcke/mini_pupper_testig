@@ -37,11 +37,11 @@ You will find these repos under https://github.com/mangdangroboticsclub
 
 #### Full Stacks
 
-| Name     | Description                                                                                                        | setup                                           |
-| ---      | ---                                                                                                                | ---                                             |
-| Stanford | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](bsp_stanford_web_controller/setup.sh |
-| ROS1     | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](bsp_ros1/setup.sh                    |
-| ROS2     | Run ROS2 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](bsp_ros2/setup.sh                    |
+| Name     | Description                                                                                                        | setup                                            |
+| ---      | ---                                                                                                                | ---                                              |
+| Stanford | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](bsp_stanford_web_controller/setup.sh) |
+| ROS1     | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](bsp_ros1/setup.sh)                    |
+| ROS2     | Run ROS2 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](bsp_ros2/setup.sh)                    |
 
 ### Contributions
 
