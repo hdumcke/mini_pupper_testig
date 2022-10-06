@@ -1,4 +1,18 @@
 #!/bin/bash
+######################################################################################
+# Stanford
+#
+# This stack will consist of board support package (mini_pupper_bsp),
+#    the StanfordQuadruped controller and the mini_pupper_web_controller
+#
+# After installation you can either pair a supported PS4 joystick or
+# point your web browser to 
+#   http://x.x.x.x:8080
+# where x.x.x.x is the IP address of your Mini Pupper as displayed on the LCD screen
+#
+# To install
+#    ./setup.sh <SSID> "<your Wifi password>"
+######################################################################################
 
 set -e
 

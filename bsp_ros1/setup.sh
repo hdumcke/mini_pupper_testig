@@ -1,4 +1,12 @@
 #!/bin/bash
+######################################################################################
+# ROS1
+#
+# This stack will consist of board support package (mini_pupper_bsp) and ROS1
+#
+# To install
+#    ./setup.sh <SSID> "<your Wifi password>"
+######################################################################################
 
 set -e
 
