@@ -53,10 +53,10 @@ cd ~/catkin_ws
 catkin_make
 
 #TODO move this to minipupper_ros repo
-exit 0
 # install service
 cd ~
-sudo ln -s $(realpath .)/robot.service /etc/systemd/system/
+sudo cp $BASEDIR/robot.service /etc/systemd/system/
+sudo mkdir -p /var/lib/minipupper/
+sudo cp $BASEDIR/run.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
-sudo systemctl start robot
