@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -e
+
+### Get directory where this script is installed
+BASEDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 # check Ubuntu version
 source /etc/os-release
 
@@ -26,7 +31,7 @@ git clone https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
 
 cd StanfordQuadruped
 ./install.sh
-./configure_network.sh $1 $2
+./configure_network.sh $1 "$2"
 
 cd ~
 ./mini_pupper_web_controller/webserver/install.sh
