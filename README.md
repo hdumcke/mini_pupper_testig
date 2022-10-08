@@ -18,7 +18,7 @@ We highlight the Status of the code as follows:
 
 - **experimental**: this is code in an early stage. Be prepared to debug and discuss if you want to get involved
 - **testing**: this code should work but expect to hit some bugs. 
-- **working**: the code has tested and supposed to work as intended. You might still find bugs, please consider to raise a GitHub issue
+- **working**: the code has been tested and supposed to work as intended. You might still find bugs, please consider to raise a GitHub issue
 - **production**: this code is used by many of our users and we encourage you to raise a GitHub issue should you encounter any bug
 
 ### Hosted by MangDang
