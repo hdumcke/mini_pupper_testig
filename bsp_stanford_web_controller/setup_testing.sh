@@ -57,3 +57,9 @@ sudo cp /tmp/mini-pupper.yaml /etc/netplan/
 
 cd ~
 ./mini_pupper_web_controller/webserver/install.sh
+
+# prepare for testing
+sudo systemctl stop robot
+sudo rm /tmp/Display.log
+# we are running in a virtual machine and are not using a Python virtual environment
+sed -i "/source  ~\/mini_pupper_venv\/bin\/activate/d" ~/StanfordQuadruped/tests/run_all_tests.sh
