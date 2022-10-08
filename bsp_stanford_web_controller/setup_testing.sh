@@ -39,9 +39,21 @@ sudo pip install -e ~/mini_pupper_bsp/mock_api
 
 cd StanfordQuadruped
 ./install.sh
-./configure_network.sh ssid password
-sudo sed -i "s/eth0/enp0s2/" /etc/netplan/mini-pupper.yaml
+cp /etc/netplan/50-cloud-init.yaml /tmp/mini-pupper.yaml
+sudo rm /etc/netplan/50-cloud-init.yaml
+sed -i "/version/d" /tmp/mini-pupper.yaml
+cat >> /tmp/mini-pupper.yaml << EOF
+    bridges:
+        br0:
+            addresses: [10.0.0.10/24]
+            parameters:
+                stp: true
+                forward-delay: 4
+            dhcp4: false
+            optional: true
+    version: 2
+EOF
+sudo cp /tmp/mini-pupper.yaml /etc/netplan/
 
 cd ~
 ./mini_pupper_web_controller/webserver/install.sh
-sudo reboot
