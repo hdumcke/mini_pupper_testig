@@ -61,5 +61,6 @@ cd ~
 # prepare for testing
 sudo systemctl stop robot
 sudo rm /tmp/Display.log
+sudo pip install coverage
 # we are running in a virtual machine and are not using a Python virtual environment
 sed -i "/source  ~\/mini_pupper_venv\/bin\/activate/d" ~/StanfordQuadruped/tests/run_all_tests.sh
