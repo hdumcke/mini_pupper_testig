@@ -1,11 +1,11 @@
 #!/bin/bash
 ######################################################################################
-# ROS2
+# ROS2 (for testing)
 #
-# This stack will consist of board support package (mini_pupper_bsp) and ROS2
+# This stack will consist of mock_api and ROS2
 #
 # To install
-#    ./setup.sh <SSID> "<your Wifi password>"
+#    ./setup_testing.sh
 ######################################################################################
 
 
