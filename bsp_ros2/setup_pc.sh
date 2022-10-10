@@ -35,8 +35,12 @@ source /opt/ros/galactic/setup.bash
 cd ~
 mkdir -p ros2_ws/src
 cd ~/ros2_ws/src
-git clone https://github.com/mangdangroboticsclub/mini_pupper_ros.git --branch=ros2
-git clone --recurse-submodules https://github.com/chvmp/champ.git --branch=ros2
+git clone https://github.com/mangdangroboticsclub/mini_pupper_ros.git -b ros2
+git clone https://github.com/mangdangroboticsclub/mini_pupper_description.git -b ros2
+#TODO remove after PR is merged
+rm -rf ~/ros2_ws/src/mini_pupper_ros/mini_pupper_description
+git clone --recursive https://github.com/chvmp/champ -b ros2
+rosdep install --from-paths src --ignore-src -r -y
 cd ..
 colcon build
 sudo apt-get -y install ros-galactic-teleop-twist-keyboard ros-galactic-cartographer-ros
