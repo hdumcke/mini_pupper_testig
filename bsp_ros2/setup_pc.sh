@@ -39,4 +39,4 @@ git clone https://github.com/mangdangroboticsclub/mini_pupper_ros.git --branch=r
 git clone --recurse-submodules https://github.com/chvmp/champ.git --branch=ros2
 cd ..
 colcon build
-sudo apt-get install ros-galactic-teleop-twist-keyboard ros-galactic-cartographer-ros
+sudo apt-get -y install ros-galactic-teleop-twist-keyboard ros-galactic-cartographer-ros
