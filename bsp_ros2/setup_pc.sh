@@ -29,4 +29,14 @@ git clone https://github.com/Tiryoh/ros2_setup_scripts_ubuntu.git
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 sudo pip install -e ~/mini_pupper_bsp/mock_api
-~/ros2_setup_scripts_ubuntu/ros-noetic-desktop-main.sh
+~/ros2_setup_scripts_ubuntu/ros-galactic-desktop-main.sh
+source /opt/ros/galactic/setup.bash
+
+cd ~
+mkdir -p ros2_ws/src
+cd ~/ros2_ws/src
+git clone https://github.com/mangdangroboticsclub/mini_pupper_ros.git --branch=ros2
+git clone https://github.com/chvmp/champ.git --branch=ros2
+cd ..
+colcon build
+sudo apt-get install ros-galactic-teleop-twist-keyboard ros-galactic-cartographer-ros
