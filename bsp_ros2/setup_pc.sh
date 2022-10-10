@@ -40,7 +40,7 @@ git clone https://github.com/mangdangroboticsclub/mini_pupper_description.git -b
 #TODO remove after PR is merged
 rm -rf ~/ros2_ws/src/mini_pupper_ros/mini_pupper_description
 git clone --recursive https://github.com/chvmp/champ -b ros2
-rosdep install --from-paths src --ignore-src -r -y
 cd ..
+rosdep install --from-paths src --ignore-src -r -y
 colcon build
 sudo apt-get -y install ros-galactic-teleop-twist-keyboard ros-galactic-cartographer-ros
