@@ -38,12 +38,12 @@ sudo apt-get install -y ninja-build stow
 mkdir -p ~/carto_ws/src
 cd ~/carto_ws
 vcs import src --input https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall
-sudo rosdep init
-rosdep update
+# Hot fix for Ubuntu 20.04. See https://github.com/cartographer-project/cartographer_ros/pull/1745
+sed -i -e "s%<depend>libabsl-dev</depend>%<\!--<depend>libabsl-dev</depend>-->%g" src/cartographer/package.xml
 source /opt/ros/noetic/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
 src/cartographer/scripts/install_abseil.sh
-sudo apt-get remove ros-${ROS_DISTRO}-abseil-cpp
+dpkg -l | grep ros-noetic-abseil-cpp && sudo apt-get remove ros-noetic-abseil-cpp
 catkin_make_isolated --install --use-ninja
 source install_isolated/setup.bash
 
@@ -65,3 +65,5 @@ sudo mkdir -p /var/lib/minipupper/
 sudo cp $BASEDIR/run.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
+
+echo "setup_pc.sh executed."

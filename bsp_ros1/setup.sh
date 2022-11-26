@@ -66,3 +66,5 @@ sudo mkdir -p /var/lib/minipupper/
 sudo cp $BASEDIR/run.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
+
+echo "setup.sh executed."
