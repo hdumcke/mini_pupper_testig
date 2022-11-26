@@ -33,9 +33,7 @@ fi
 $BASEDIR/configure_network.sh $1 "$2"
 
 cd ~
-#TODO change after PR is merged
-#git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
-git clone https://github.com/hdumcke/mini_pupper_bsp.git -b PR5
+git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/Tiryoh/ros_setup_scripts_ubuntu.git
 ./mini_pupper_bsp/install.sh
 ~/ros_setup_scripts_ubuntu/ros-noetic-ros-base-main.sh
