@@ -39,7 +39,9 @@ git clone https://github.com/mangdangroboticsclub/mini_pupper_ros.git -b ros2
 git clone https://github.com/mangdangroboticsclub/mini_pupper_description.git -b ros2
 #TODO remove after PR is merged
 rm -rf ~/ros2_ws/src/mini_pupper_ros/mini_pupper_description
-git clone --recursive https://github.com/chvmp/champ -b ros2
+git clone https://github.com/chvmp/robots.git -b ros2
+#TODO change after PR is merged
+git clone https://github.com/CullenSUN/chvmp_robots.git -b feature/fix-mini-pupper-config
 cd ..
 rosdep install --from-paths src --ignore-src -r -y
 colcon build

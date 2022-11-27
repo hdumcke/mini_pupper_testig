@@ -36,9 +36,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 cd ~
-#TODO change after PR is merged
-#git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
-git clone https://github.com/hdumcke/mini_pupper_bsp.git -b PR5
+git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/mangdangroboticsclub/StanfordQuadruped.git
 git clone https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
 ./mini_pupper_bsp/install.sh
