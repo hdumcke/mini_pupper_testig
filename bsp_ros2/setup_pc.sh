@@ -16,9 +16,9 @@ BASEDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # check Ubuntu version
 source /etc/os-release
 
-if [[ $UBUNTU_CODENAME != 'focal' ]]
+if [[ $UBUNTU_CODENAME != 'jammy' ]]
 then
-    echo "Ubuntu 20.04 LTS (Focal Fossa) is required"
+    echo "Ubuntu 22.04 LTS (Jammy Jellyfish) is required"
     echo "You are using $VERSION"
     exit 1
 fi
@@ -29,20 +29,22 @@ git clone https://github.com/Tiryoh/ros2_setup_scripts_ubuntu.git
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 sudo pip install -e ~/mini_pupper_bsp/mock_api
-~/ros2_setup_scripts_ubuntu/ros2-galactic-desktop-main.sh
-source /opt/ros/galactic/setup.bash
+~/ros2_setup_scripts_ubuntu/ros2-humble-desktop-main.sh
+source /opt/ros/humble/setup.bash
 
 cd ~
 mkdir -p ros2_ws/src
 cd ~/ros2_ws/src
+
 git clone https://github.com/mangdangroboticsclub/mini_pupper_ros.git -b ros2
-git clone https://github.com/mangdangroboticsclub/mini_pupper_description.git -b ros2
-#TODO remove after PR is merged
-rm -rf ~/ros2_ws/src/mini_pupper_ros/mini_pupper_description
-git clone https://github.com/chvmp/robots.git -b ros2
-#TODO change after PR is merged
-git clone https://github.com/CullenSUN/chvmp_robots.git -b feature/fix-mini-pupper-config
-cd ..
+# TODO: Decide whether mini_pupper_ros and mini_pupper_description should be independent or integrated
+# git clone https://github.com/mangdangroboticsclub/mini_pupper_description.git -b ros2
+
+git clone --recursive https://github.com/Tiryoh/champ -b patch-1
+# TODO: Replace after PR merged
+# git clone --recursive https://github.com/chvmp/champ -b ros2
+
+cd ~/ros2_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build
-sudo apt-get -y install ros-galactic-teleop-twist-keyboard ros-galactic-cartographer-ros
+sudo apt-get -y install ros-humble-teleop-twist-keyboard ros-humble-cartographer-ros
