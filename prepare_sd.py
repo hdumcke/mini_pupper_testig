@@ -12,7 +12,6 @@ import os
 ##############################################################
 
 target_environment = {}
-target_environment['ros_master'] = ''
 hardware_version = ['v1', 'v2', 'v2_pro']
 stack_names = ['Stanford', 'ROS1']
 stack_scripts = ['bsp_stanford_web_controller/setup.sh', 'bsp_ros1/setup.sh']
@@ -41,8 +40,6 @@ def ask_questions():
     for i in range(len(stack_names)):
         print("%s: %s" % (i + 1, stack_names[i]))
     ask_user("Please enter number", 'stack')
-    if target_environment['stack'] == 'ROS1':
-        ask_user("ROS master IP address", 'ros_master')
     ask_user("Full path to SD card", 'sd_path')
 
 
@@ -108,12 +105,11 @@ packages:
 - git
 runcmd:
 - [ su, ubuntu, -c, "git clone https://github.com/hdumcke/mini_pupper_testig.git /home/ubuntu/mini_pupper" ]
-- [ su, ubuntu, -c, "/home/ubuntu/mini_pupper/%s %s '%s' %s" ]
+- [ su, ubuntu, -c, "/home/ubuntu/mini_pupper/%s %s '%s'" ]
 - [ reboot ]
 """
 with open(user_data_file, 'w') as fh:
     fh.write(user_data % (target_environment['ubuntu_password'],
                           target_environment['script'],
                           target_environment['wifi_ssid'],
-                          target_environment['wifi_password'],
-                          target_environment['ros_master']))
+                          target_environment['wifi_password']))
