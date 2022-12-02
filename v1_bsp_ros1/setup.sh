@@ -64,6 +64,8 @@ cd ~
 sudo cp $BASEDIR/robot.service /etc/systemd/system/
 sudo mkdir -p /var/lib/minipupper/
 sudo cp $BASEDIR/run.sh /var/lib/minipupper/
+sudo cp $BASEDIR/show_ip.py /var/lib/minipupper/
+sudo cp $BASEDIR/edit_bashrc.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 
