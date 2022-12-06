@@ -24,6 +24,18 @@ then
 fi
 
 cd ~
+
+############################################
+# wait until unattended-upgrade has finished
+############################################
+tmp=$(ps aux | grep unattended-upgrade | grep -v unattended-upgrade-shutdown | grep python | wc -l)
+[ $tmp == "0" ] || echo "waiting for unattended-upgrade to finish"
+while [ $tmp != "0" ];do
+sleep 10;
+echo -n "."
+tmp=$(ps aux | grep unattended-upgrade | grep -v unattended-upgrade-shutdown | grep python | wc -l)
+done
+
 git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/Tiryoh/ros_setup_scripts_ubuntu.git
 sudo apt-get update
