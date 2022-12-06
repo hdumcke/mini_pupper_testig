@@ -1,11 +1,11 @@
 #!/bin/bash
 ######################################################################################
-# ROS1
+# ROS1 (for testing)
 #
-# This stack will consist of board support package (mini_pupper_bsp) and ROS1
+# This stack will consist of mock_api and ROS1
 #
 # To install
-#    ./setup.sh <SSID> "<your Wifi password>"
+#    ./setup_testing.sh
 ######################################################################################
 
 set -e
@@ -23,18 +23,11 @@ then
     exit 1
 fi
 
-# check parameters
-if [ "$#" -ne 2 ]; then
-    echo "Usage: $0 <ssid> <wifi password>"
-    exit 1
-fi
-
-# configure network
-$BASEDIR/configure_network.sh $1 "$2"
-
 cd ~
 git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
 git clone https://github.com/Tiryoh/ros_setup_scripts_ubuntu.git
+sudo apt-get update
+sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 ./mini_pupper_bsp/install.sh
 ~/ros_setup_scripts_ubuntu/ros-noetic-ros-base-main.sh
 source /opt/ros/noetic/setup.bash
@@ -64,8 +57,6 @@ cd ~
 sudo cp $BASEDIR/robot.service /etc/systemd/system/
 sudo mkdir -p /var/lib/minipupper/
 sudo cp $BASEDIR/run.sh /var/lib/minipupper/
-sudo cp $BASEDIR/show_ip.py /var/lib/minipupper/
-sudo cp $BASEDIR/edit_bashrc.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 
