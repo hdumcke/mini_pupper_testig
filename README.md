@@ -53,13 +53,13 @@ And answer the questions. At the end eject your SD card, stick itto mini pupper,
 
 You will find these repos under https://github.com/mangdangroboticsclub
 
-| Repository                       | Description                                                                           | Status       |
-| ---                              | ---                                                                                   | ---          |
-| mini_pupper_bsp                  | BSP(board support package) for Mini Pupper.                                           | working      |
-| StanfordQuadruped -b mini_pupper | This is a fork of the Stanford Pupper with modification to make it run on Mini Pupper | working      |
-| mini_pupper_web_controller       | This code provides a web GUI for Mini Pupper running StanfordQuadruped                | testing      |
-| mini_pupper_ros -b ros1          | This code used Champ and ROS1 to control Mini Pupper.                                 | testing      |
-| mini_pupper_ros -b ros2          | This code used Champ and ROS2 to control Mini Pupper.                                 | experimental |
+| Repository                       | Description                                                                                        | Status       |
+| ---                              | ---                                                                                                | ---          |
+| mini_pupper_bsp                  | BSP(board support package) for Mini Pupper.                                                        | working      |
+| StanfordQuadruped -b mini_pupper | This is a fork of the StanfordQuadruped repository with modification to make it run on Mini Pupper | working      |
+| mini_pupper_web_controller       | This code provides a web GUI for Mini Pupper running StanfordQuadruped                             | testing      |
+| mini_pupper_ros -b ros1          | This code used Champ and ROS1 to control Mini Pupper.                                              | testing      |
+| mini_pupper_ros -b ros2          | This code used Champ and ROS2 to control Mini Pupper.                                              | experimental |
 
 #### Full Stacks
 
@@ -83,5 +83,4 @@ You will find these repos under https://github.com/mangdangroboticsclub
 | Name         | OS    | Description                                   | setup                                |
 | ---          | ---   | ---                                           | ---                                  |
 | ROS1 Jupyter | Focal | ROSCon2022 Jupyter Notebooks for Mini Pupper. | [setup.sh](v1_ros1_jupyter/setup.sh) |
-|              |       |                                               |                                      |
 
