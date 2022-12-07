@@ -8,6 +8,8 @@ Versions, link to assembly manual(s)
 
 ## Software
 
+![](./docs/images/hla.png)
+
 Below is a list of repositories where you can find code for your mini pupper. Some of these repositories is hosted by MangDang and we make any effort to maintain these repositories. Please open issues on GitHub when you see fit and submit pull requests if you can improve the code.
 
 We are an open community and welcome contributions. If you have written code for mini pupper that you want to share please submit a PR to this repo with the details.
@@ -39,20 +41,22 @@ You will find these repos under https://github.com/mangdangroboticsclub
 
 | Name     | Description                                                                                                        | setup                                            |
 | ---      | ---                                                                                                                | ---                                              |
-| Stanford | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](bsp_stanford_web_controller/setup.sh) |
-| ROS1     | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](bsp_ros1/setup.sh)                    |
-| ROS2     | Run ROS2 on your Mini Pupper.                                                                                      | [setup.sh](bsp_ros2/setup.sh)                    |
+| Stanford | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](v1_bsp_stanford_web_controller/setup.sh) |
+| ROS1     | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](v1_bsp_ros1/setup.sh)                    |
+| ROS2     | Run ROS2 on your Mini Pupper.                                                                                      | [setup.sh](v1_bsp_ros2/setup.sh)                    |
 
 ### Contributions
 
 #### Repositories
 
-| Repository                                                                | Description                                                                                                                                                                      | Status       |
-| ---                                                                       | ---                                                                                                                                                                              | ---          |
-| [minipupper_kinematics](https://github.com/hdumcke/minipupper_kinematics) | This repositories contains Jupyter notebook that I used to gain a better understanding of the kinematics of a quadruped robot in general and MangDang Mini Pupper in particular. | experimental |
+| Repository                                                                               | Description                                                                                                                                                                      | Status       |
+| ---                                                                                      | ---                                                                                                                                                                              | ---          |
+| [minipupper_kinematics](https://github.com/hdumcke/minipupper_kinematics)                | This repositories contains Jupyter notebook that I used to gain a better understanding of the kinematics of a quadruped robot in general and MangDang Mini Pupper in particular. | experimental |
+| [mini-pupper-jupyter-notebooks](https://github.com/Tiryoh/mini-pupper-jupyter-notebooks) | ROSCon2022 Jupyter Notebooks for Mini Pupper.                                                                                                                                    | experimental |
 
 #### Full Stacks
 
-| Name | Description | setup |
-| ---  | ---         | ---   |
-|      |             |       |
+| Name         | Description                                   | setup                                |
+| ---          | ---                                           | ---                                  |
+| ROS1 Jupyter | ROSCon2022 Jupyter Notebooks for Mini Pupper. | [setup.sh](v1_ros1_jupyter/setup.sh) |
+|              |                                               |                                      |

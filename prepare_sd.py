@@ -13,8 +13,11 @@ import os
 
 target_environment = {}
 hardware_version = ['v1', 'v2', 'v2_pro']
-stack_names = ['Stanford', 'ROS1']
-stack_scripts = ['bsp_stanford_web_controller/setup.sh', 'bsp_ros1/setup.sh']
+stack_owners = ['MangDang', 'Third Parties']
+stack_names_mangdang = ['Stanford', 'ROS1']
+stack_scripts_mangdang = ['bsp_stanford_web_controller/setup.sh', 'bsp_ros1/setup.sh']
+stack_names_thirdparties = ['ROS1 Jupyter Notebook']
+stack_scripts_thirdparties = ['ros1_jupyter/setup.sh']
 
 
 def write_cache(cache_file):
@@ -36,7 +39,15 @@ def ask_questions():
     for i in range(len(hardware_version)):
         print("%s: %s" % (i + 1, hardware_version[i]))
     ask_user("Please enter number", 'hardware_version')
-    print("Which stack do you want to install:\n")
+    print("Which stack do you want to install?\nSelect Owner:\n")
+    for i in range(len(stack_owners)):
+        print("%s: %s" % (i + 1, stack_owners[i]))
+    ask_user("Please enter number", 'stack_owner')
+    if target_environment['stack_owner'] == '1':
+        stack_names = stack_names_mangdang
+    if target_environment['stack_owner'] == '2':
+        stack_names = stack_names_thirdparties
+    print("Select stack:\n")
     for i in range(len(stack_names)):
         print("%s: %s" % (i + 1, stack_names[i]))
     ask_user("Please enter number", 'stack')
@@ -69,6 +80,10 @@ if os.path.exists(conf_file):
                 target_environment[key] = value
 else:
     ask_questions()
+    if target_environment['stack_owner'] == '1':
+        stack_scripts = stack_scripts_mangdang
+    if target_environment['stack_owner'] == '2':
+        stack_scripts = stack_scripts_thirdparties
     target_environment['script'] = "%s_%s" % (hardware_version[int(target_environment['hardware_version']) - 1],
                                               stack_scripts[int(target_environment['stack']) - 1])
     if args.cache:
@@ -108,6 +123,58 @@ runcmd:
 - [ su, ubuntu, -c, "/home/ubuntu/mini_pupper/%s %s '%s'" ]
 - [ reboot ]
 """
+
+user_data_focal = """#cloud-config
+ssh_pwauth: True
+chpasswd:
+  expire: false
+  list:
+  - ubuntu:%s
+write_files:
+- path: /var/lib/mini_pupper/setup.sh
+  content: |
+    #!/bin/bash
+    /usr/bin/git clone https://github.com/hdumcke/mini_pupper_testig.git /home/ubuntu/mini_pupper
+    /home/ubuntu/mini_pupper/%s %s '%s' 2> /home/ubuntu/.setup_err.log > /home/ubuntu/.setup_out.log
+    reboot
+  permissions: '0755'
+  owner: root:root
+- path: /etc/rc.local
+  content: |
+    #!/bin/bash
+    /var/lib/mini_pupper/setup.sh
+  permissions: '0755'
+  owner: root:root
+- path: /lib/systemd/system/rc-local.service
+  content: |
+    [Unit]
+    Description=/etc/rc.local Compatibility
+    Documentation=man:systemd-rc-local-generator(8)
+    ConditionFileIsExecutable=/etc/rc.local
+    After=network.target
+
+    [Service]
+    Type=forking
+    ExecStart=/etc/rc.local
+    TimeoutSec=0
+    RemainAfterExit=no
+    GuessMainPID=no
+    User=ubuntu
+
+    [Install]
+    WantedBy=multi-user.target
+    Alias=rc.local.service
+  permissions: '0644'
+  owner: root:root
+runcmd:
+- [ systemctl, enable, rc-local ]
+- [ /usr/bin/sleep, 60 ]
+- [ reboot ]
+"""
+
+if target_environment['stack'] == '2':
+    user_data = user_data_focal
+
 with open(user_data_file, 'w') as fh:
     fh.write(user_data % (target_environment['ubuntu_password'],
                           target_environment['script'],
