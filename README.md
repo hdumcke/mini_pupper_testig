@@ -10,9 +10,9 @@ Versions, link to assembly manual(s)
 
 ![](./docs/images/hla.png)
 
-Below is a list of repositories where you can find code for your mini pupper. Some of these repositories is hosted by MangDang and we make any effort to maintain these repositories. Please open issues on GitHub when you see fit and submit pull requests if you can improve the code.
+Below is a list of repositories where you can find code for your Mini Pupper. Some of these repositories is hosted by MangDang and we make any effort to maintain these repositories. Please open issues on GitHub when you see fit and submit pull requests if you can improve the code.
 
-We are an open community and welcome contributions. If you have written code for mini pupper that you want to share please submit a PR to this repo with the details.
+We are an open community and welcome contributions. If you have written code for Mini Pupper that you want to share please submit a PR to this repo with the details.
 
 We also provide full stacks that come with a setup script that you can run starting with a SD card with Ubuntu installed. Clone this repository, run the setup script for the stack you want to install and wait until the Raspberry Pi reboots. See below for details.
 
@@ -45,7 +45,7 @@ Clone this repository on the PC where you have created your SD card. Make sure t
 
 prepare_sd.py
 
-And answer the questions. At the end eject your SD card, stick itto mini pupper, boot minipupper and wait until the IP address is shown on the LCD.
+And answer the questions. At the end eject your SD card, stick it into Mini Pupper, boot Mini Pupper and wait until the IP address is shown on the LCD.
 
 ### Hosted by MangDang
 
