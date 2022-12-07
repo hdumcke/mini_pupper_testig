@@ -36,8 +36,8 @@ echo -n "."
 tmp=$(ps aux | grep unattended-upgrade | grep -v unattended-upgrade-shutdown | grep python | wc -l)
 done
 
-git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
-git clone https://github.com/Tiryoh/ros_setup_scripts_ubuntu.git
+[ -d "./mini_pupper_bsp" ] || git clone https://github.com/mangdangroboticsclub/mini_pupper_bsp.git
+[ -d "./ros_setup_scripts_ubuntu" ] || git clone https://github.com/Tiryoh/ros_setup_scripts_ubuntu.git
 sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 ./mini_pupper_bsp/install.sh
@@ -49,7 +49,7 @@ rosdep update
 
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
-git clone -b ros1 https://github.com/mangdangroboticsclub/minipupper_ros.git
+[ -d "./minipupper_ros" ] || git clone -b ros1 https://github.com/mangdangroboticsclub/minipupper_ros.git
 vcs import < minipupper_ros/.minipupper.repos --recursive
 
 # it's not recommend to compile gazebo and cartographer on raspberry pi
@@ -68,7 +68,7 @@ sudo apt install docker.io
 sudo usermod -aG docker ubuntu
 mkdir -p~/dev
 cd ~/dev/
-git clone https://github.com/Tiryoh/mini-pupper-jupyter-notebooks.git
+[ -d "./mini-pupper-jupyter-notebooks" ] || git clone https://github.com/Tiryoh/mini-pupper-jupyter-notebooks.git
 
 docker pull ghcr.io/tiryoh/conda-jupyter-ros:noetic
 

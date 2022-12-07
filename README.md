@@ -23,6 +23,30 @@ We highlight the Status of the code as follows:
 - **working**: the code has been tested and supposed to work as intended. You might still find bugs, please consider to raise a GitHub issue
 - **production**: this code is used by many of our users and we encourage you to raise a GitHub issue should you encounter any bug
 
+### Installation
+
+Prepare a SD card with the operating system required for your stack. 
+
+Focal: `ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz` is recommended.
+
+https://cdimage.ubuntu.com/releases/20.04/release/
+
+Jammy: `ubuntu-22.04.1-preinstalled-server-arm64+raspi.img.xz` is recommended.
+
+https://cdimage.ubuntu.com/releases/22.04/release/
+
+#### Manual Installation
+
+Boot Mini Pupper with your SD card, configure the network, clone this repository and run the setup script for your stack
+
+#### Fully Automated Installation (experimental)
+
+Clone this repository on the PC where you have created your SD card. Make sure the SD card is mounted. Run
+
+prepare_sd.py
+
+And answer the questions. At the end eject your SD card, stick itto mini pupper, boot minipupper and wait until the IP address is shown on the LCD.
+
 ### Hosted by MangDang
 
 #### Repositories
@@ -39,11 +63,11 @@ You will find these repos under https://github.com/mangdangroboticsclub
 
 #### Full Stacks
 
-| Name     | Description                                                                                                        | setup                                            |
-| ---      | ---                                                                                                                | ---                                              |
-| Stanford | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](v1_bsp_stanford_web_controller/setup.sh) |
-| ROS1     | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](v1_bsp_ros1/setup.sh)                    |
-| ROS2     | Run ROS2 on your Mini Pupper.                                                                                      | [setup.sh](v1_bsp_ros2/setup.sh)                    |
+| Name     | OS    | Description                                                                                                        | setup                                               |   |   |
+| ---      | ---   | ---                                                                                                                | ---                                                 |   |   |
+| Stanford | Jammy | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](v1_bsp_stanford_web_controller/setup.sh) |   |   |
+| ROS1     | Focal | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](v1_bsp_ros1/setup.sh)                    |   |   |
+| ROS2     | Jammy | Run ROS2 on your Mini Pupper.                                                                                      | [setup.sh](v1_bsp_ros2/setup.sh)                    |   |   |
 
 ### Contributions
 
@@ -56,7 +80,7 @@ You will find these repos under https://github.com/mangdangroboticsclub
 
 #### Full Stacks
 
-| Name         | Description                                   | setup                                |
-| ---          | ---                                           | ---                                  |
-| ROS1 Jupyter | ROSCon2022 Jupyter Notebooks for Mini Pupper. | [setup.sh](v1_ros1_jupyter/setup.sh) |
-|              |                                               |                                      |
+| Name         | OS    | Description                                   | setup                                |   |   |   |
+| ---          | ---   | ---                                           | ---                                  |   |   |   |
+| ROS1 Jupyter | Focal | ROSCon2022 Jupyter Notebooks for Mini Pupper. | [setup.sh](v1_ros1_jupyter/setup.sh) |   |   |   |
+|              |       |                                               |                                      |   |   |   |

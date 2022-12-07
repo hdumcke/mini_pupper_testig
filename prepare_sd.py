@@ -172,7 +172,10 @@ runcmd:
 - [ reboot ]
 """
 
-if target_environment['stack'] == '2':
+# Use different cloud-init configuration for Ubuntu Focal (20.04)
+if target_environment['stack_owner'] == '1' and target_environment['stack'] == '2':
+    user_data = user_data_focal
+if target_environment['stack_owner'] == '2' and target_environment['stack'] == '1':
     user_data = user_data_focal
 
 with open(user_data_file, 'w') as fh:
