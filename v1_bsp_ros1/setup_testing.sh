@@ -56,7 +56,7 @@ catkin_make
 cd ~
 sudo cp $BASEDIR/robot.service /etc/systemd/system/
 sudo mkdir -p /var/lib/minipupper/
-sudo cp $BASEDIR/run.sh /var/lib/minipupper/
+sudo cp $BASEDIR/run_testing.sh /var/lib/minipupper/run.sh
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 

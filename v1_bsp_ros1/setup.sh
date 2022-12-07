@@ -1,11 +1,12 @@
 #!/bin/bash
 ######################################################################################
-# ROS1 (for testing)
+# ROS1
 #
-# This stack will consist of mock_api and ROS1
+# This stack will consist of board support package (mini_pupper_bsp),
+#    ROS1 and champ
 #
 # To install
-#    ./setup_testing.sh
+#    ./setup.sh
 ######################################################################################
 
 set -e
@@ -69,6 +70,8 @@ cd ~
 sudo cp $BASEDIR/robot.service /etc/systemd/system/
 sudo mkdir -p /var/lib/minipupper/
 sudo cp $BASEDIR/run.sh /var/lib/minipupper/
+sudo cp $BASEDIR/show_ip.py /var/lib/minipupper/
+sudo cp $BASEDIR/edit_bashrc.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 

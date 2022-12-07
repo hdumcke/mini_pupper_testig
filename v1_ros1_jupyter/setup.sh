@@ -1,11 +1,12 @@
 #!/bin/bash
 ######################################################################################
-# ROS1 (for testing)
+# ROS1 and Jupyter notebooks
 #
-# This stack will consist of mock_api and ROS1
+# This stack will consist of board support package (mini_pupper_bsp),
+#     ROS1 and Jupyter notebook
 #
 # To install
-#    ./setup_testing.sh
+#    ./setup.sh
 ######################################################################################
 
 set -e
@@ -42,7 +43,8 @@ sudo apt-get update
 sudo apt-get -y install python3 python3-pip python-is-python3 python3-venv python3-virtualenv
 ./mini_pupper_bsp/install.sh
 ~/ros_setup_scripts_ubuntu/ros-noetic-ros-base-main.sh
-sudo apt install ros-noetic-rosbridge-server ros-noetic-tf2-web-republisher
+sudo apt install -y ros-noetic-rosbridge-server ros-noetic-tf2-web-republisher
+sudo apt install -y ros-noetic-depthai-bridge ros-noetic-depthai-examples
 source /opt/ros/noetic/setup.bash
 source /usr/lib/python3/dist-packages/catkin_tools/verbs/catkin_shell_verbs.bash
 rosdep update
@@ -64,9 +66,9 @@ rosdep install --from-paths . --ignore-src -r -y --skip-keys=joint_state_publish
 cd ~/catkin_ws
 catkin_make
 
-sudo apt install docker.io
+sudo apt install -y docker.io
 sudo usermod -aG docker ubuntu
-mkdir -p~/dev
+mkdir -p ~/dev
 cd ~/dev/
 [ -d "./mini-pupper-jupyter-notebooks" ] || git clone https://github.com/Tiryoh/mini-pupper-jupyter-notebooks.git
 
@@ -77,6 +79,9 @@ cd ~
 sudo cp $BASEDIR/robot.service /etc/systemd/system/
 sudo mkdir -p /var/lib/minipupper/
 sudo cp $BASEDIR/run.sh /var/lib/minipupper/
+sudo cp $BASEDIR/show_ip.py /var/lib/minipupper/
+sudo cp $BASEDIR/show_jupyter_url.sh /var/lib/minipupper/
+sudo cp $BASEDIR/edit_bashrc.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 
