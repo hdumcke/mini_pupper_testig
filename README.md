@@ -1,14 +1,21 @@
 # Mini Pupper
 
-High level overview, web site, Discord channel, ...
+Online channel: [Discord](https://discord.gg/xJdt3dHBVw), [FaceBook](https://www.facebook.com/groups/716473723088464), [Youtube](https://www.youtube.com/channel/UCqHWYGXmnoO7VWHmENje3ug/featured), [Twitter](https://twitter.com/LeggedRobot)
 
-## Hardware
+Document: https://minipupperdocs.readthedocs.io/en/latest/index.html
 
-Versions, link to assembly manual(s)
+Mini Pupper will make robotics easier for schools, homeschool families, enthusiasts and beyond.
+
+- ROS: support ROS SLAM&Navigation robot dog at low-cost price, endorsed by ROS.
+- OpenCV: support OpenCV official OAK-D-Lite 3D camera module, endorsed by OpenCV.
+- Open-source: DIY and custom what you want, won a HackadayPrize!
+- Raspberry Pi: it’s super expandable, endorsed by Raspberry Pi.
+
+![Mini Pupper ](./docs/images/MiniPupper.png)
 
 ## Software
 
-![](./docs/images/hla.png)
+![High level architecture](./docs/images/hla.png)
 
 Below is a list of repositories where you can find code for your Mini Pupper. Some of these repositories is hosted by MangDang and we make any effort to maintain these repositories. Please open issues on GitHub when you see fit and submit pull requests if you can improve the code.
 
