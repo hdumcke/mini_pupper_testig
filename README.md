@@ -63,11 +63,11 @@ You will find these repos under https://github.com/mangdangroboticsclub
 
 #### Full Stacks
 
-| Name     | OS    | Description                                                                                                        | setup                                               |   |   |
-| ---      | ---   | ---                                                                                                                | ---                                                 |   |   |
-| Stanford | Jammy | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](v1_bsp_stanford_web_controller/setup.sh) |   |   |
-| ROS1     | Focal | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](v1_bsp_ros1/setup.sh)                    |   |   |
-| ROS2     | Jammy | Run ROS2 on your Mini Pupper.                                                                                      | [setup.sh](v1_bsp_ros2/setup.sh)                    |   |   |
+| Name     | OS    | Description                                                                                                        | setup                                               |
+| ---      | ---   | ---                                                                                                                | ---                                                 |
+| Stanford | Jammy | Allows to control your Mini Pupper with either a supported PS4 joystick or a Web GUI using the Stanford controller | [setup.sh](v1_bsp_stanford_web_controller/setup.sh) |
+| ROS1     | Focal | Run ROS1 on your Mini Pupper. Support for Lidar and OAK-D-Lite is provided                                         | [setup.sh](v1_bsp_ros1/setup.sh)                    |
+| ROS2     | Jammy | Run ROS2 on your Mini Pupper.                                                                                      | [setup.sh](v1_bsp_ros2/setup.sh)                    |
 
 ### Contributions
 
@@ -80,7 +80,8 @@ You will find these repos under https://github.com/mangdangroboticsclub
 
 #### Full Stacks
 
-| Name         | OS    | Description                                   | setup                                |   |   |   |
-| ---          | ---   | ---                                           | ---                                  |   |   |   |
-| ROS1 Jupyter | Focal | ROSCon2022 Jupyter Notebooks for Mini Pupper. | [setup.sh](v1_ros1_jupyter/setup.sh) |   |   |   |
-|              |       |                                               |                                      |   |   |   |
+| Name         | OS    | Description                                   | setup                                |
+| ---          | ---   | ---                                           | ---                                  |
+| ROS1 Jupyter | Focal | ROSCon2022 Jupyter Notebooks for Mini Pupper. | [setup.sh](v1_ros1_jupyter/setup.sh) |
+|              |       |                                               |                                      |
+
