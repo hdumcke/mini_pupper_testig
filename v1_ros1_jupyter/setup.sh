@@ -75,15 +75,20 @@ cd ~/dev/
 # call as root as docker group not activates before logout/login
 sudo docker pull ghcr.io/tiryoh/conda-jupyter-ros:noetic
 
+# udev rules for OAL-D
+echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 
 cd ~
 sudo cp $BASEDIR/robot.service /etc/systemd/system/
+sudo cp $BASEDIR/jupyter.service /etc/systemd/system/
 sudo mkdir -p /var/lib/minipupper/
 sudo cp $BASEDIR/run.sh /var/lib/minipupper/
+sudo cp $BASEDIR/run_jupyter.sh /var/lib/minipupper/
 sudo cp $BASEDIR/show_ip.py /var/lib/minipupper/
 sudo cp $BASEDIR/show_jupyter_url.sh /var/lib/minipupper/
 sudo cp $BASEDIR/edit_bashrc.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
+sudo systemctl enable jupyter
 
 echo "setup.sh executed."
