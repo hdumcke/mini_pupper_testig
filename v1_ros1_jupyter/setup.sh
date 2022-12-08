@@ -72,7 +72,8 @@ mkdir -p ~/dev
 cd ~/dev/
 [ -d "./mini-pupper-jupyter-notebooks" ] || git clone https://github.com/Tiryoh/mini-pupper-jupyter-notebooks.git
 
-docker pull ghcr.io/tiryoh/conda-jupyter-ros:noetic
+# call as root as docker group not activates before logout/login
+sudo docker pull ghcr.io/tiryoh/conda-jupyter-ros:noetic
 
 
 cd ~
