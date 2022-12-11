@@ -188,12 +188,6 @@ write_files:
     reboot
   permissions: '0755'
   owner: root:root
-- path: /etc/rc.local
-  content: |
-    #!/bin/bash
-    /var/lib/mini_pupper/setup.sh
-  permissions: '0755'
-  owner: root:root
 """
 
 
