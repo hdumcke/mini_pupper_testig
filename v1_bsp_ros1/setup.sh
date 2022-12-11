@@ -10,6 +10,7 @@
 ######################################################################################
 
 set -e
+echo "setup.sh started at $(date)"
 
 ### Get directory where this script is installed
 BASEDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
@@ -75,4 +76,5 @@ sudo cp $BASEDIR/edit_bashrc.sh /var/lib/minipupper/
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 
-echo "setup.sh executed."
+echo "setup.sh finished at $(date)"
+sudo reboot

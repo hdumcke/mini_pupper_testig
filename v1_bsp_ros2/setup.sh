@@ -8,5 +8,10 @@
 #    ./setup.sh <SSID> "<your Wifi password>"
 ######################################################################################
 
+set -e
+echo "setup.sh started at $(date)"
 
 ###### work in progress #######
+
+echo "setup.sh finished at $(date)"
+sudo reboot

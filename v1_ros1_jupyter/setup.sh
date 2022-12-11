@@ -10,6 +10,7 @@
 ######################################################################################
 
 set -e
+echo "setup.sh started at $(date)"
 
 ### Get directory where this script is installed
 BASEDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
@@ -91,4 +92,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable robot
 sudo systemctl enable jupyter
 
-echo "setup.sh executed."
+echo "setup.sh finished at $(date)"
+sudo reboot

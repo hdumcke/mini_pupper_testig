@@ -15,6 +15,7 @@
 ######################################################################################
 
 set -e
+echo "setup.sh started at $(date)"
 
 ### Get directory where this script is installed
 BASEDIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
@@ -47,4 +48,5 @@ cd StanfordQuadruped
 
 cd ~
 ./mini_pupper_web_controller/webserver/install.sh
+echo "setup.sh finished at $(date)"
 sudo reboot

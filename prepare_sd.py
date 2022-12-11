@@ -120,7 +120,7 @@ packages:
 - git
 runcmd:
 - [ su, ubuntu, -c, "git clone https://github.com/hdumcke/mini_pupper_testig.git /home/ubuntu/mini_pupper" ]
-- [ su, ubuntu, -c, "/home/ubuntu/mini_pupper/%s %s '%s'" ]
+- [ su, ubuntu, -c, "/home/ubuntu/mini_pupper/%s %s '%s' 2> /home/ubuntu/.setup_err.log > /home/ubuntu/.setup_out.log" ]
 - [ reboot ]
 """
 
@@ -171,6 +171,31 @@ runcmd:
 - [ /usr/bin/sleep, 60 ]
 - [ reboot ]
 """
+
+# for now do not start automatically
+user_data_focal = """#cloud-config
+ssh_pwauth: True
+chpasswd:
+  expire: false
+  list:
+  - ubuntu:%s
+write_files:
+- path: /var/lib/mini_pupper/setup.sh
+  content: |
+    #!/bin/bash
+    /usr/bin/git clone https://github.com/hdumcke/mini_pupper_testig.git /home/ubuntu/mini_pupper
+    /home/ubuntu/mini_pupper/%s %s '%s' 2> /home/ubuntu/.setup_err.log > /home/ubuntu/.setup_out.log
+    reboot
+  permissions: '0755'
+  owner: root:root
+- path: /etc/rc.local
+  content: |
+    #!/bin/bash
+    /var/lib/mini_pupper/setup.sh
+  permissions: '0755'
+  owner: root:root
+"""
+
 
 # Use different cloud-init configuration for Ubuntu Focal (20.04)
 if target_environment['stack_owner'] == '1' and target_environment['stack'] == '2':
