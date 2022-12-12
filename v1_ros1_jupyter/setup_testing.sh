@@ -76,7 +76,6 @@ cd ~/dev/
 # patch to allow to run in Multipass VM
 sed -i "s/wlan0/enp0s2/" mini-pupper-jupyter-notebooks/run.sh
 sed -i "s/wlan0/enp0s2/" mini-pupper-jupyter-notebooks/notebook/*.ipynb
-sudo sed -i "s/wlan0/enp0s2/" /var/lib/minipupper/*
 
 # Build Docker image
 cd ~/dev/mini-pupper-jupyter-notebooks/docker/conda-jupyter-ros
@@ -98,6 +97,8 @@ sudo cp $BASEDIR/run_jupyter.sh /var/lib/minipupper/
 sudo cp $BASEDIR/show_ip.py /var/lib/minipupper/
 sudo cp $BASEDIR/show_jupyter_url.sh /var/lib/minipupper/
 sudo cp $BASEDIR/edit_bashrc.sh /var/lib/minipupper/
+# patch to allow to run in Multipass VM
+sudo sed -i "s/wlan0/enp0s2/" /var/lib/minipupper/*
 sudo systemctl daemon-reload
 sudo systemctl enable robot
 sudo systemctl enable jupyter
