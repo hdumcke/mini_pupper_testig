@@ -80,7 +80,7 @@ sed -i "s/wlan0/enp0s2/" mini-pupper-jupyter-notebooks/notebook/*.ipynb
 # Build Docker image
 cd ~/dev/mini-pupper-jupyter-notebooks/docker/conda-jupyter-ros
 sed -i "s/aarch/x86_/" Dockerfile
-./build.sh
+sudo ./build.sh
 
 # call as root as docker group not activates before logout/login
 #sudo docker pull ghcr.io/tiryoh/conda-jupyter-ros:noetic
