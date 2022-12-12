@@ -73,8 +73,18 @@ mkdir -p ~/dev
 cd ~/dev/
 [ -d "./mini-pupper-jupyter-notebooks" ] || git clone https://github.com/Tiryoh/mini-pupper-jupyter-notebooks.git
 
+# patch to allow to run in Multipass VM
+sed -i "s/wlan0/enp0s2/" mini-pupper-jupyter-notebooks/run.sh
+sed -i "s/wlan0/enp0s2/" mini-pupper-jupyter-notebooks/notebook/*.ipynb
+sudo sed -i "s/wlan0/enp0s2/" /var/lib/minipupper/*
+
+# Build Docker image
+cd ~/dev/mini-pupper-jupyter-notebooks/docker/conda-jupyter-ros
+sed -i "s/aarch/x86_/" Dockerfile
+./build.sh
+
 # call as root as docker group not activates before logout/login
-sudo docker pull ghcr.io/tiryoh/conda-jupyter-ros:noetic
+#sudo docker pull ghcr.io/tiryoh/conda-jupyter-ros:noetic
 
 # udev rules for OAL-D
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
