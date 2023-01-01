@@ -37,10 +37,10 @@ if [ "$#" -ne 2 ]; then
 fi
 
 cd ~
-git clone https://github.com/hdumcke/esp32-tests.git
+git clone https://github.com/hdumcke/esp32-tests.git mini_pupper_bsp
 git clone https://github.com/mangdangroboticsclub/StanfordQuadruped.git
 git clone https://github.com/mangdangroboticsclub/mini_pupper_web_controller.git
-./esp32-tests/install.sh
+./mini_pupper_bsp/install.sh
 
 cd StanfordQuadruped
 ./install.sh

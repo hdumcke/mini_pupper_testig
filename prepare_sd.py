@@ -14,8 +14,8 @@ import os
 target_environment = {}
 hardware_version = ['v1', 'v2', 'v2_pro']
 stack_owners = ['MangDang', 'Third Parties']
-stack_names_mangdang = ['Stanford', 'ROS1']
-stack_scripts_mangdang = ['bsp_stanford_web_controller/setup.sh', 'bsp_ros1/setup.sh']
+stack_names_mangdang = ['Stanford', 'ROS1', 'ROS2']
+stack_scripts_mangdang = ['bsp_stanford_web_controller/setup.sh', 'bsp_ros1/setup.sh', 'bsp_ros2/setup.sh']
 stack_names_thirdparties = ['ROS1 Jupyter Notebook']
 stack_scripts_thirdparties = ['ros1_jupyter/setup.sh']
 
