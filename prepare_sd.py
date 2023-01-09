@@ -16,8 +16,8 @@ hardware_version = ['v1', 'v2', 'v2_pro']
 stack_owners = ['MangDang', 'Third Parties']
 stack_names_mangdang = ['Stanford', 'ROS1', 'ROS2']
 stack_scripts_mangdang = ['bsp_stanford_web_controller/setup.sh', 'bsp_ros1/setup.sh', 'bsp_ros2/setup.sh']
-stack_names_thirdparties = ['ROS1 Jupyter Notebook']
-stack_scripts_thirdparties = ['ros1_jupyter/setup.sh']
+stack_names_thirdparties = ['ROS1 Jupyter Notebook', 'ESP IDF']
+stack_scripts_thirdparties = ['ros1_jupyter/setup.sh', 'esp_idf/setup.sh']
 
 
 def write_cache(cache_file):
@@ -92,6 +92,12 @@ else:
 network_conf_file = os.path.join(target_environment['sd_path'], 'network-config')
 if not os.path.exists(network_conf_file):
     sys.exit("Invalid path to SD card or SD card not mounted\n")
+
+# Check Answers
+script_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), target_environment['script'])
+if not os.path.isfile(script_file):
+    print("This Stack is not supported\n")
+    sys.exit()
 
 network_conf = """version: 2
 ethernets:
